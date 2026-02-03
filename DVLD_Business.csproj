@@ -31,8 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DVLD_DataAccess">
-      <HintPath>..\DVLD_DataAccess\obj\Debug\DVLD_DataAccess.dll</HintPath>
+    <Reference Include="DVLD_DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DVLD_DataAccess\bin\Debug\DVLD_DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
