@@ -163,7 +163,7 @@ namespace DVLD_Business
 
         }
 
-        public clsPerson Find(int PersonID)
+        public static clsPerson Find(int PersonID)
         {
             string FirstName = string.Empty;
             string SecondName = string.Empty;
@@ -194,7 +194,7 @@ namespace DVLD_Business
             }
         }
 
-        public clsPerson Find(string NationalNo)
+        public static clsPerson Find(string NationalNo)
         {
             int PersonID = -1;
             string FirstName = string.Empty;
