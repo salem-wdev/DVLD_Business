@@ -134,33 +134,9 @@ namespace DVLD_Business
                 , NationalNo, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
         }
 
-        public bool Delete(int PersonID)
+        public static bool Delete(int PersonID)
         {
-            if (clsPersonData.DeletePerson(PersonID))
-            {
-                this.PersonID = -1;
-                this.FirstName = string.Empty;
-                this.SecondName = string.Empty;
-                this.ThirdName = string.Empty;
-                this.LastName = string.Empty;
-                this.NationalNo = string.Empty;
-                this.DateOfBirth = DateTime.Now;
-                this.Gender = 0;
-                this.Address = string.Empty;
-                this.Phone = string.Empty;
-                this.Email = string.Empty;
-                this.NationalityCountryID = 1;
-                this.ImagePath = string.Empty;
-
-                _Mode = enMode.AddNew;
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }      
-
+            return clsPersonData.DeletePerson(PersonID);
         }
 
         public static clsPerson Find(int PersonID)
