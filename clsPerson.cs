@@ -114,9 +114,9 @@ namespace DVLD_Business
             string ImagePath = this.ImagePath;
 
 
-            this.PersonID = clsPersonData.AddNewPerson( ref FirstName, ref SecondName, ref ThirdName
-                ,ref LastName, ref NationalNo, ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email
-                ,ref NationalityCountryID, ref ImagePath);
+            this.PersonID = clsPersonData.AddNewPerson(  FirstName,  SecondName,  ThirdName
+                , LastName,  NationalNo,  DateOfBirth,  Gender,  Address,  Phone,  Email
+                , NationalityCountryID,  ImagePath);
         
             if(PersonID != -1 )
             {
@@ -130,8 +130,8 @@ namespace DVLD_Business
 
         private bool _UpdatePerson()
         {
-            return clsPersonData.UpdatePerson(PersonID, FirstName, SecondName, ThirdName, LastName
-                , NationalNo, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
+            return clsPersonData.UpdatePerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName
+                , DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
         }
 
         public static bool Delete(int PersonID)
