@@ -154,7 +154,7 @@ namespace DVLD_Business
             int NationalityCountryID = 1;
             string ImagePath = string.Empty;
 
-            bool found = clsPersonData.FindPersonByPersonID(PersonID, ref NationalNo, ref FirstName
+            bool found = clsPersonData.GetPersonInfoByID(PersonID, ref NationalNo, ref FirstName
                 , ref SecondName, ref ThirdName, ref LastName,  ref DateOfBirth, ref Gender, ref Address
                 , ref Phone, ref Email, ref NationalityCountryID, ref ImagePath);
 
@@ -185,7 +185,7 @@ namespace DVLD_Business
             int NationalityCountryID = 1;
             string ImagePath = string.Empty;
 
-            bool found = clsPersonData.FindPersonByNationalNo(NationalNo, ref PersonID, ref FirstName
+            bool found = clsPersonData.GetPersonInfoByNationalNo(NationalNo, ref PersonID, ref FirstName
                 , ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gender, ref Address
                 , ref Phone, ref Email, ref NationalityCountryID, ref ImagePath);
 
