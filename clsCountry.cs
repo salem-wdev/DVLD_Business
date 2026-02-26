@@ -14,7 +14,7 @@ namespace DVLD_Business
         public int CountryID { get; private set; }
         public string CountryName { get; set; }
 
-        private clsCountry()
+        public clsCountry()
         {
             // Private constructor to prevent instantiation without parameters
             CountryID = -1;
