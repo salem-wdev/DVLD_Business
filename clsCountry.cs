@@ -11,8 +11,8 @@ namespace DVLD_Business
     public class clsCountry
     {
 
-        public int CountryID { get; private set; }
-        public string CountryName { get; set; }
+        public int CountryID { get; }
+        public string CountryName { get; }
 
         public clsCountry()
         {
