@@ -10,9 +10,9 @@ namespace DVLD_Business
 {
     public class clsPerson
     {
-        private enum enGenderType { Male = 0, Female = 1 }
-        private enum enMode { AddNew = 0, Update = 1 }
-        private enMode _Mode;
+        public enum enGenderType { Male = 0, Female = 1 }
+        public enum enMode { AddNew = 0, Update = 1 }
+        public enMode Mode { get; private set; }
 
         public int PersonID { get; private set; }
         public string NationalNo { get; set; }
@@ -28,7 +28,7 @@ namespace DVLD_Business
             }
         }
         public DateTime DateOfBirth { get; set; }
-        public short Gender { get; set; }
+        public enGenderType Gender { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
@@ -52,7 +52,7 @@ namespace DVLD_Business
             NationalityCountryID = 1;
             ImagePath = string.Empty;
 
-            _Mode = enMode.AddNew;
+            Mode = enMode.AddNew;
         }
 
         public clsPerson(string FirstName, string SecondName, string ThirdName
@@ -66,7 +66,7 @@ namespace DVLD_Business
             this.LastName = LastName;
             this.NationalNo = NationalNo;
             this.DateOfBirth = DateOfBirth;
-            this.Gender = Gender;
+            this.Gender = (enGenderType)Gender;
             this.Address = Address;
             this.Phone = Phone;
             this.Email = Email;
@@ -74,7 +74,7 @@ namespace DVLD_Business
             this.Country = clsCountry.Find(NationalityCountryID);
             this.ImagePath = ImagePath;
 
-            _Mode = enMode.Update;
+            Mode = enMode.Update;
         }
 
         // New overload that sets PersonID so instances returned from Find have correct ID
@@ -90,7 +90,7 @@ namespace DVLD_Business
             this.LastName = LastName;
             this.NationalNo = NationalNo;
             this.DateOfBirth = DateOfBirth;
-            this.Gender = Gender;
+            this.Gender = (enGenderType)Gender;
             this.Address = Address;
             this.Phone = Phone;
             this.Email = Email;
@@ -98,7 +98,7 @@ namespace DVLD_Business
             this.Country = clsCountry.Find(NationalityCountryID);
             this.ImagePath = ImagePath;
 
-            _Mode = enMode.Update;
+            Mode = enMode.Update;
         }
 
         private bool _AddNewPerson()
@@ -109,7 +109,7 @@ namespace DVLD_Business
             string LastName = this.LastName;
             string NationalNo = this.NationalNo;
             DateTime DateOfBirth = this.DateOfBirth;
-            short Gender = this.Gender;
+            short Gender = (short)this.Gender;
             string Address = this.Address;
             string Phone = this.Phone;
             string Email = this.Email;
@@ -134,7 +134,7 @@ namespace DVLD_Business
         private bool _UpdatePerson()
         {
             return clsPersonData.UpdatePerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName
-                , DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
+                , DateOfBirth, (short)Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
         }
 
         public static bool Delete(int PersonID)
@@ -221,11 +221,11 @@ namespace DVLD_Business
 
         public bool Save()
         {
-            switch (_Mode)
+            switch (Mode)
             {
                 case enMode.AddNew:
                     {
-                        _Mode = enMode.AddNew;
+                        Mode = enMode.Update;
                         return _AddNewPerson();
                     }
                 case enMode.Update:
