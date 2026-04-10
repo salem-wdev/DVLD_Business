@@ -55,27 +55,7 @@ namespace DVLD_Business
             Mode = enMode.AddNew;
         }
 
-        public clsPerson(string FirstName, string SecondName, string ThirdName
-            ,string LastName, string NationalNo, DateTime DateOfBirth, short Gender 
-            ,string Address, string Phone, string Email, int NationalityCountryID
-            ,string ImagePath)
-        {
-            this.FirstName = FirstName;
-            this.SecondName = SecondName;
-            this.ThirdName = ThirdName;
-            this.LastName = LastName;
-            this.NationalNo = NationalNo;
-            this.DateOfBirth = DateOfBirth;
-            this.Gender = (enGenderType)Gender;
-            this.Address = Address;
-            this.Phone = Phone;
-            this.Email = Email;
-            this.NationalityCountryID = NationalityCountryID;
-            this.Country = clsCountry.Find(NationalityCountryID);
-            this.ImagePath = ImagePath;
-
-            Mode = enMode.Update;
-        }
+        
 
         // New overload that sets PersonID so instances returned from Find have correct ID
         private clsPerson(int PersonID, string FirstName, string SecondName, string ThirdName
