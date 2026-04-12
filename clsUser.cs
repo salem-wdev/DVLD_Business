@@ -46,8 +46,19 @@ namespace DVLD_Business
                 }
             }
         }
-
-        public string UserName { get; set; }
+        private string _UserName;
+        public string UserName
+        {
+            get => this._UserName;
+            set
+            {
+                if (Mode == enMode.Update)
+                {
+                    return;
+                }
+                _UserName = value;
+            }
+        }
         public string Password { get; set; }
         public bool IsActive { get; set; }
 
