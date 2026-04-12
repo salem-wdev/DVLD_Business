@@ -14,7 +14,23 @@ namespace DVLD_Business
         public enMode Mode { get; private set; }
 
         public int UserID { get; private set; }
-        public int PersonID { get; private set; }
+        private int _PersonID { get; set; }
+        public int PersonID 
+        {
+            get => _PersonID;
+            set
+            {
+                // Prevent changing PersonID if we're in Update mode to maintain data integrity
+                if (this.Mode == enMode.Update)
+                {
+                    return; 
+                }
+                _PersonID = value;
+                _Person = clsPerson.Find(_PersonID);
+            }
+        }
+
+
         private clsPerson _Person; 
 
         public clsPerson Person
