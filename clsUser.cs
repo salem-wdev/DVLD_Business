@@ -249,6 +249,10 @@ namespace DVLD_Business
             return clsUserData.ChangePassword(UserID, NewPassword);
         }
 
+        public static bool DoesPersonHaveUser(int PersonID)
+        {
+            return clsUserData.DoesPersonHaveUser44(PersonID);
+        }
 
     }
 }
