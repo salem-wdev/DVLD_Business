@@ -130,7 +130,7 @@ namespace DVLD_Business
             bool IsActive = false;
 
 
-            bool found = clsUserData.GetUserInfoByID(UserID, ref PersonID,
+            bool found = clsUserData.GetUserInfoByUserID(UserID, ref PersonID,
                 ref UserName, ref Password, ref IsActive);
 
             if (found)
@@ -243,5 +243,12 @@ namespace DVLD_Business
                     }
             }
         }
+
+        public static bool ChangePassword(int UserID, string NewPassword)
+        {
+            return clsUserData.ChangePassword(UserID, NewPassword);
+        }
+
+
     }
 }
