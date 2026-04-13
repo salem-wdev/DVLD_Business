@@ -26,14 +26,13 @@ namespace DVLD_Business
                     return; 
                 }
                 _PersonID = value;
-                _Person = clsPerson.Find(_PersonID);
             }
         }
 
 
         private clsPerson _Person; 
 
-        public clsPerson Person
+        public clsPerson PersonInfo
         {
             get => _Person; 
             set
@@ -42,7 +41,7 @@ namespace DVLD_Business
 
                 if (value != null)
                 {
-                    this.PersonID = value.PersonID;
+                    this._PersonID = value.PersonID;
                 }
             }
         }
@@ -70,7 +69,7 @@ namespace DVLD_Business
             this.UserName = string.Empty;
             this.Password = string.Empty;
             this.IsActive = false;
-            this.Person = new clsPerson();
+            this.PersonInfo = new clsPerson();
 
             Mode = enMode.AddNew;
         }
@@ -86,7 +85,7 @@ namespace DVLD_Business
             this.Password = Password;
             this.IsActive = IsActive;
 
-            this.Person = clsPerson.Find(PersonID);
+            this.PersonInfo = clsPerson.Find(PersonID);
 
             Mode = enMode.Update;
         }
