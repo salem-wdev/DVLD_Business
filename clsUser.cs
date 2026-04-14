@@ -229,8 +229,15 @@ namespace DVLD_Business
             {
                 case enMode.AddNew:
                     {
-                        Mode = enMode.Update;
-                        return _AddNewUser();
+                        if (_AddNewUser())
+                        {
+                            Mode = enMode.Update;
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
                 case enMode.Update:
                     {
