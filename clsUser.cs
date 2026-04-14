@@ -92,10 +92,10 @@ namespace DVLD_Business
 
         private bool _AddNewUser()
         {
-            if (!_Person.Save()) // Ensure the person is saved and has a valid PersonID
-            {
-                return false;
-            }
+            //if (!_Person.Save()) // Ensure the person is saved and has a valid PersonID
+            //{
+            //    return false;
+            //}
             this.PersonID = _Person.PersonID;
 
             this.UserID = clsUserData.AddNewUser(this.PersonID, this.UserName,
@@ -106,10 +106,10 @@ namespace DVLD_Business
 
         private bool _UpdateUser()
         {
-            if (!_Person.Save()) // Ensure the person is saved and has a valid PersonID
-            {
-                return false;
-            }
+            //if (!_Person.Save()) // Ensure the person is saved and has a valid PersonID
+            //{
+            //    return false;
+            //}
             this.PersonID = _Person.PersonID;
 
             return clsUserData.UpdateUser(this.UserID, this.PersonID, 
